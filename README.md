@@ -22,5 +22,6 @@ Se pide diseñar tres algoritmos que permitan calcular el n-ésimo número hexag
       <li>Implementar los tres algoritmos en un programa en Java.</li>
       <li>Determinar empíricamente el tiempo de ejecución de los tres algoritmos como función de n.</li>
     </ol>
+Cada clase y método del programa debe incluir suficiente y apropiada documentación interna para hacerlo completamente comprensible. Dicha documentación puede crearse usando formato javadoc (<a href="https://www.oracle.com/java/technologies/javase/javadoc-tool.html">https://www.oracle.com/java/technologies/javase/javadoc-tool.html</a>). 
   </p>
 </p>
