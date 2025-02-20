@@ -23,5 +23,8 @@ Se pide diseñar tres algoritmos que permitan calcular el n-ésimo número hexag
       <li>Determinar empíricamente el tiempo de ejecución de los tres algoritmos como función de n.</li>
     </ol>
 Cada clase y método del programa debe incluir suficiente y apropiada documentación interna para hacerlo completamente comprensible. Dicha documentación puede crearse usando formato javadoc (<a href="https://www.oracle.com/java/technologies/javase/javadoc-tool.html">https://www.oracle.com/java/technologies/javase/javadoc-tool.html</a>). 
+<h4>Info</h4>
+Números Hexagonales: <a href="https://en.wikipedia.org/wiki/Hexagonal_number">https://en.wikipedia.org/wiki/Hexagonal_number</a><br>
+Números Poligonales: <a href="https://en.wikipedia.org/wiki/Polygonal_number">https://en.wikipedia.org/wiki/Polygonal_number</a>
   </p>
 </p>
