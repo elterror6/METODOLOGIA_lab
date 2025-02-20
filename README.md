@@ -12,10 +12,9 @@
   <h3>Caso de Estudio 1</h3>
   <p>
     Un número hexagonal es un número poligonal que representa un hexágono. La expresión para calcular el n-ésimo número hexagonal es,<b>
-Hn= n (2n – 1) = 2n2 – n<b>
+Hn= n (2n – 1) = 2n<sup>2</sup> – n<b>
 También, puede obtenerse como el término n-ésimo de la serie,<b>
-Hn= ∑ (𝟒𝒊 + 𝟏) 𝒏ି𝟏
-𝒊ୀ𝟎<b>
+Hn= ∑ (𝟒𝒊 + 𝟏)<b>
 Se pide diseñar tres algoritmos que permitan calcular el n-ésimo número hexagonal: uno que aplique la fórmula cerrada (ecuación 1), uno iterativo (mediante la ecuación 2) y otro recursivo. Todos ellos deben tomar como parámetro de entrada un valor, n, y proporcionar el nésimo número hexagonal. En concreto, el trabajo consiste en: 
   </p>
 </p>
