@@ -3,7 +3,7 @@
 <p>Repositorio de código de los casos de uso del laboratorio de la asignatura Metodología de la Programación de la UCLM en el curso 2024/2025.</p>
 <h2>Participantes</h2>
 <ul>
-  <li>Daniel Díaz García</li>
+  <li>DANIEL DÍAZ GARCÍA</li>
   <li>OUSSAMA BOLBAROUD</li>
 </ul>
 <p>
