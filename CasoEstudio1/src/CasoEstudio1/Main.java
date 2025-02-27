@@ -1,6 +1,7 @@
 package CasoEstudio1;
 
 import java.util.Scanner;
+import Algorithm.*;
 
 public class Main {
 
@@ -11,9 +12,12 @@ public class Main {
 		String icr = "Cálculo de número hexagonal de forma recursiva\n______________________________________________\n¿Cuál número hexagonal desea calcular? ";
 		
 		Interfaz interfaz = new Interfaz (menu);
-		int option=0;
+		int option=0, n;
+		Par pair;
 		Scanner in = new Scanner(System.in);
 		do {
+			n=0;
+			pair=null;
 			interfaz.setInterface(menu);
 			System.out.println(interfaz.getInterface());
 			option = in.nextInt();
@@ -21,14 +25,23 @@ public class Main {
 				case 1:
 					interfaz.setInterface(icc);
 					System.out.println(interfaz.getInterface());
+					n = in.nextInt();
+					pair=Algoritmo1.calcularHexagonal(n);
+					System.out.println("Resultado: "+pair.getN()+" ["+pair.getTime()+"ns]");
 					break;
 				case 2:
 					interfaz.setInterface(ici);
 					System.out.println(interfaz.getInterface());
+					n = in.nextInt();
+					pair = Algoritmo2.calcularHexagonal(n);
+					System.out.println("Resultado: "+pair.getN()+" ["+pair.getTime()+"ns]");
 					break;
 				case 3:
 					interfaz.setInterface(icr);
 					System.out.println(interfaz.getInterface());
+					n = in.nextInt();
+					pair = Algoritmo3.calcularHexagonal(n);
+					System.out.println("Resultado: "+pair.getN()+" ["+pair.getTime()+"ns]");
 					break;
 				case 4:
 					System.out.println("Goodbye.");
