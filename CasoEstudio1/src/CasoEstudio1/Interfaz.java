@@ -1,7 +1,7 @@
 package CasoEstudio1;
 /**
- * Esta clase representa una interfaz gráfica básica para
- * realizar un menú con varias opciones.
+ * Esta clase representa una interfaz grÃ¡fica bÃ¡sica para
+ * realizar un menÃº con varias opciones.
  */
 public class Interfaz {
 	
@@ -11,7 +11,7 @@ public class Interfaz {
 	/**
 	 * Crea una nueva instancia de la clase Interfaz.
 	 *
-	 * @param menu El menú de la clase.
+	 * @param menu El menÃº de la clase.
 	 */
 	public Interfaz (String intrfc) {
 		this.intrfc = intrfc;
