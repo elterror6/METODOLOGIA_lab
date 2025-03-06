@@ -1,20 +1,29 @@
 package Algorithm;
 
 /**
- * Clase que proporciona un método para calcular el número hexagonal de un entero dado.
+ * Clase que proporciona un metodo para calcular el numero hexagonal 
+ * de un entero dado con formula cerrada.
+ * 
+ * @author Daniel Diaz Garcia
+ * @author Oussama Bolbaroud
+ * @author Miguel Ahijon Hormigos
+ * @author David Marcos Valhondo
  */
 public class Algoritmo1 {
 
     /**
-     * Calcula el número hexagonal de un número entero dado.
+     * Calcula el numero hexagonal de un numero entero dado con la formula cerrada.
      * <p>
-     * Un número hexagonal se define por la fórmula: 
+     * Un numero hexagonal se define por la formula: 
      * {@code H(n) = n * (2n - 1)}
      * </p>
+     * <p>
+     * La complejidad de este algoritmo es de <code>T(n)=&Theta;(1)</code>
+     * </p>
      * 
-     * @param n El número entero para calcular su número hexagonal.
-     * @return Un objeto {@link Par} que contiene el tiempo de ejecución en nanosegundos
-     *         y el resultado del cálculo del número hexagonal.
+     * @param n El numero entero para calcular su numero hexagonal.
+     * @return Un objeto {@link Par} que contiene el tiempo de ejecucion en nanosegundos
+     *         y el resultado del calculo del numero hexagonal.
      */
     public static Par calcularHexagonal(int n) {
         int result;

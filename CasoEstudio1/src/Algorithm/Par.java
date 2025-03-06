@@ -1,23 +1,27 @@
 package Algorithm;
 
 /**
- * Clase que representa un par de valores, compuesto por un tiempo de ejecución y un número entero.
- * <p>
- * Se utiliza para almacenar el tiempo que tomó un cálculo y el resultado correspondiente.
- * </p>
+ * Clase que representa un par de valores, compuesto por un tiempo de ejecucion y un numero 
+ * entero. Esta clase se utiliza para que los algoritmos devuelvan tanto el tiempo de ejecuci�n
+ * como el resultado del algoritmo.
+ *
+ * @author Daniel Diaz Garcia
+ * @author Oussama Bolbaroud
+ * @author Miguel Ahijon Hormigos
+ * @author David Marcos Valhondo
  */
 public class Par {
-    /** Tiempo de ejecución en nanosegundos. */
+    /** Tiempo de ejecucion en nanosegundos. */
     private long time;
 
-    /** Resultado del cálculo numérico. */
+    /** Resultado del calculo numerico. */
     private int n;
 
     /**
-     * Constructor que inicializa un objeto {@code Par} con el tiempo de ejecución y el resultado.
+     * Constructor que inicializa un objeto {@code Par} con el tiempo de ejecucion y el resultado.
      *
-     * @param time Tiempo de ejecución en nanosegundos.
-     * @param n Resultado del cálculo numérico.
+     * @param time Tiempo de ejecucion en nanosegundos.
+     * @param n Resultado del calculo numerico.
      */
     public Par(long time, int n) {
         this.time = time;
@@ -25,36 +29,36 @@ public class Par {
     }
 
     /**
-     * Obtiene el tiempo de ejecución almacenado.
+     * Obtiene el tiempo de ejecucion almacenado.
      *
-     * @return El tiempo de ejecución en nanosegundos.
+     * @return El tiempo de ejecucion en nanosegundos.
      */
     public long getTime() {
         return time;
     }
 
     /**
-     * Establece el tiempo de ejecución.
+     * Establece el tiempo de ejecucion.
      *
-     * @param time El tiempo de ejecución en nanosegundos.
+     * @param time El tiempo de ejecucion en nanosegundos.
      */
     public void setTime(long time) {
         this.time = time;
     }
 
     /**
-     * Obtiene el resultado del cálculo numérico almacenado.
+     * Obtiene el resultado del calculo numerico almacenado.
      *
-     * @return El valor numérico calculado.
+     * @return El valor numerico calculado.
      */
     public int getN() {
         return n;
     }
 
     /**
-     * Establece el resultado del cálculo numérico.
+     * Establece el resultado del calculo numerico.
      *
-     * @param n El nuevo valor numérico.
+     * @param n El nuevo valor numerico.
      */
     public void setN(int n) {
         this.n = n;

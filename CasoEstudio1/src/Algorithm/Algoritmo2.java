@@ -1,20 +1,30 @@
 package Algorithm;
 
 /**
- * Clase que proporciona un método alternativo para calcular el número hexagonal de un entero dado.
+ * Clase que proporciona un metodo alternativo para calcular 
+ * el numero hexagonal de un entero dado de manera iterativa.
+ * 
+ * @author Daniel Diaz Garcia
+ * @author Oussama Bolbaroud
+ * @author Miguel Ahijon Hormigos
+ * @author David Marcos Valhondo
  */
 public class Algoritmo2 {
 
     /**
-     * Calcula el número hexagonal de un número entero dado utilizando una suma acumulativa.
+     * Calcula el numero hexagonal de un numero entero dado utilizando una suma acumulativa de
+     * manera iterativa.
      * <p>
-     * Un número hexagonal se define como la suma de la secuencia:
-     * {@code H(n) = 1 + 5 + 9 + 13 + ...} hasta el término correspondiente a {@code n}.
+     * Un numero hexagonal se define como la suma de la secuencia:
+     * <code>H(n)=&sum;<sub>i=0</sub><sup>n-1</sup>(4i+1)</code>
+     * </p>
+     * <p>
+     * La complejidad de este algoritmo es de <code>T(n)=O(n)</code>
      * </p>
      * 
-     * @param n El número entero para calcular su número hexagonal.
-     * @return Un objeto {@link Par} que contiene el tiempo de ejecución en nanosegundos
-     *         y el resultado del cálculo del número hexagonal.
+     * @param n El numero entero para calcular su numero hexagonal.
+     * @return Un objeto {@link Par} que contiene el tiempo de ejecucion en nanosegundos
+     *         y el resultado del calculo del numero hexagonal.
      */
     public static Par calcularHexagonal(int n) {
         int resultado = 0;

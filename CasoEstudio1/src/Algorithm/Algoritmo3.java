@@ -1,19 +1,28 @@
 package Algorithm;
 
 /**
- * Clase que proporciona un método recursivo para calcular el número hexagonal de un entero dado.
+ * Clase que proporciona un metodo recursivo para calcular el numero hexagonal 
+ * de un entero dado de manera recursiva.
+ * 
+ * @author Daniel Diaz Garcia
+ * @author Oussama Bolbaroud
+ * @author Miguel Ahijon Hormigos
+ * @author David Marcos Valhondo
  */
 public class Algoritmo3 {
 
     /**
-     * Método recursivo para calcular el número hexagonal de un número entero.
+     * Metodo recursivo para calcular el numero hexagonal de un numero entero.
      * <p>
-     * La función se basa en la ecuación recursiva:
+     * La funcion se basa en la ecuacion recursiva:
      * {@code F(n) = (4 * n - 3) + F(n - 1)}, con el caso base {@code F(1) = 1}.
      * </p>
+     * <p>
+     * La complejidad del algoritmo es de {@code T(n)=O(n)}
+     * </p>
      * 
-     * @param n El número entero para calcular su número hexagonal.
-     * @return El número hexagonal calculado recursivamente.
+     * @param n El numero entero para calcular su numero hexagonal.
+     * @return El numero hexagonal calculado recursivamente.
      */
     private static int F(int n) {
         if (n == 1) {
@@ -23,14 +32,15 @@ public class Algoritmo3 {
     } 
 
     /**
-     * Calcula el número hexagonal de un número entero dado utilizando una implementación recursiva.
+     * Calcula el numero hexagonal de un numero entero dado utilizando una implementacion
+     * recursiva.
      * <p>
-     * Mide el tiempo de ejecución del cálculo utilizando {@link System#nanoTime()}.
+     * Mide el tiempo de ejecucion del calculo utilizando {@link System#nanoTime()}.
      * </p>
      * 
-     * @param n El número entero para calcular su número hexagonal.
-     * @return Un objeto {@link Par} que contiene el tiempo de ejecución en nanosegundos
-     *         y el resultado del cálculo del número hexagonal.
+     * @param n El numero entero para calcular su numero hexagonal.
+     * @return Un objeto {@link Par} que contiene el tiempo de ejecucion en nanosegundos
+     *         y el resultado del calculo del numero hexagonal.
      */
     public static Par calcularHexagonal(int n) {
         int result = 0;

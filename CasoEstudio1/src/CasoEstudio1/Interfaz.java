@@ -1,7 +1,12 @@
 package CasoEstudio1;
 /**
  * Esta clase representa una interfaz gráfica básica para
- * realizar un menú con varias opciones.
+ * realizar un menu con varias opciones.
+ * 
+ * @author Daniel Diaz Garcia
+ * @author Oussama Bolbaroud
+ * @author Miguel Ahijon Hormigos
+ * @author David Marcos Valhondo
  */
 public class Interfaz {
 	

@@ -4,37 +4,43 @@ import java.util.Scanner;
 import Algorithm.*;
 
 /**
- * Clase principal que permite al usuario calcular números hexagonales
- * utilizando diferentes métodos: fórmula fija, iterativo y recursivo.
+ * Clase principal que permite al usuario calcular numeros hexagonales
+ * utilizando diferentes metodos: formula fija - ({@link Algoritmo1}), iterativo - ({@link Algoritmo2}) y recursivo - ({@link Algoritmo3}).
+ * 
+ * @author Daniel Diaz Garcia
+ * @author Oussama Bolbaroud
+ * @author Miguel Ahijon Hormigos
+ * @author David Marcos Valhondo
  */
 public class Main {
 
     /**
-     * Método principal que ejecuta un menú interactivo para calcular números hexagonales.
-     * El usuario puede elegir entre tres métodos distintos de cálculo y ver los tiempos de ejecución.
+     * Metodo principal que ejecuta un menu interactivo para calcular numeros hexagonales.
+     * El usuario puede elegir entre tres métodos distintos de calculo y ver los tiempos de
+     * ejecucion.
      *
-     * @param args Argumentos de línea de comandos (no utilizados en este programa).
+     * @param args Argumentos de linea de comandos (no utilizados en este programa).
      */
     public static void main(String[] args) {
        
-        String menu = "Cálculo de números hexagonales\n_______________________________\n"
-                    + "\t1) Cálculo con fórmula fija.\n"
-                    + "\t2) Cálculo de manera iterativa.\n"
-                    + "\t3) Cálculo de manera recursiva.\n"
+        String menu = "Calculo de numeros hexagonales\n_______________________________\n"
+                    + "\t1) Calculo con formula fija.\n"
+                    + "\t2) Calculo de manera iterativa.\n"
+                    + "\t3) Calculo de manera recursiva.\n"
                     + "\t4) Salir\n"
-                    + "¿Qué opción quiere escoger? ";
+                    + "¿Que opcion quiere escoger? ";
                     
-        String icc = "Cálculo de número hexagonal con ecuación cerrada\n"
+        String icc = "Calculo de numero hexagonal con ecuacion cerrada\n"
                    + "________________________________________________\n"
-                   + "¿Cuál número hexagonal desea calcular? ";
+                   + "�Cual numero hexagonal desea calcular? ";
                    
-        String ici = "Cálculo de número hexagonal de forma iterativa\n"
+        String ici = "Calculo de numero hexagonal de forma iterativa\n"
                    + "______________________________________________\n"
-                   + "¿Cuál número hexagonal desea calcular? ";
+                   + "�Cual numero hexagonal desea calcular? ";
                    
-        String icr = "Cálculo de número hexagonal de forma recursiva\n"
+        String icr = "Calculo de numero hexagonal de forma recursiva\n"
                    + "______________________________________________\n"
-                   + "¿Cuál número hexagonal desea calcular? ";
+                   + "�Cual numero hexagonal desea calcular? ";
         
         
         Interfaz interfaz = new Interfaz(menu);
