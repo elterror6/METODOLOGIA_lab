@@ -31,22 +31,20 @@ package Prueba;
 	     * @return Número de inversiones
 	     */
 	    private static int mergeSort(int[] arr, int[] aux, int izq, int der) {
-	        if (izq >= der) {
-	            return 0; // Caso base: un solo elemento no tiene inversiones
+	    	int medio = (izq + der) / 2;
+		    int inversiones = 0;
+		    
+	        if (izq < der) {
+	        	// Contar inversiones en la mitad izquierda
+		        inversiones += mergeSort(arr, aux, izq, medio);
+
+		        // Contar inversiones en la mitad derecha
+		        inversiones += mergeSort(arr, aux, medio + 1, der);
+
+		        // Contar inversiones en la fase de fusión
+		        inversiones += merge(arr, aux, izq, medio, der);
 	        }
-
-	        int medio = (izq + der) / 2;
-	        int inversiones = 0;
-
-	        // Contar inversiones en la mitad izquierda
-	        inversiones += mergeSort(arr, aux, izq, medio);
-
-	        // Contar inversiones en la mitad derecha
-	        inversiones += mergeSort(arr, aux, medio + 1, der);
-
-	        // Contar inversiones en la fase de fusión
-	        inversiones += merge(arr, aux, izq, medio, der);
-
+	        
 	        return inversiones;
 	    }
 
@@ -60,24 +58,24 @@ package Prueba;
 	     * @return Número de inversiones
 	     */
 	    private static int merge(int[] arr, int[] aux, int izq, int medio, int der) {
-	        for (int i = izq; i <= der; i++) {
-	            aux[i] = arr[i];
-	        }
-
-	        int i = izq, j = medio + 1, k = izq;
+	    	int i = izq, j = medio + 1, k = izq;
 	        int inversiones = 0;
-
+	    	
+	    	for (int t = izq; t <= der; t++) {
+	            aux[t-izq] = arr[t];
+	        }
 	        while (i <= medio && j <= der) {
-	            if (aux[i] <= aux[j]) {
-	                arr[k++] = aux[i++];
+	            if (aux[i-izq] <= aux[j-izq]) {
+	                arr[k] = aux[i-izq]; i++;
 	            } else {
-	                arr[k++] = aux[j++];
+	                arr[k] = aux[j-izq];j++;
 	                inversiones += (medio - i + 1); // Cuenta las inversiones
 	            }
+	            k++;
 	        }
 
 	        while (i <= medio) {
-	            arr[k++] = aux[i++];
+	            arr[k++] = aux[i++-izq];
 	        }
 
 	        return inversiones;
