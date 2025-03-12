@@ -19,7 +19,7 @@ package Prueba;
 	     */
 	    public static int contarInversiones(int[] arr) {
 	        int[] aux = new int[arr.length]; // Array auxiliar para la fusión
-	        return mergeSortContar(arr, aux, 0, arr.length - 1);
+	        return mergeSort(arr, aux, 0, arr.length - 1);
 	    }
 	    
 	    /**
@@ -30,7 +30,7 @@ package Prueba;
 	     * @param der  Índice derecho
 	     * @return Número de inversiones
 	     */
-	    private static int mergeSortContar(int[] arr, int[] aux, int izq, int der) {
+	    private static int mergeSort(int[] arr, int[] aux, int izq, int der) {
 	        if (izq >= der) {
 	            return 0; // Caso base: un solo elemento no tiene inversiones
 	        }
@@ -39,13 +39,13 @@ package Prueba;
 	        int inversiones = 0;
 
 	        // Contar inversiones en la mitad izquierda
-	        inversiones += mergeSortContar(arr, aux, izq, medio);
+	        inversiones += mergeSort(arr, aux, izq, medio);
 
 	        // Contar inversiones en la mitad derecha
-	        inversiones += mergeSortContar(arr, aux, medio + 1, der);
+	        inversiones += mergeSort(arr, aux, medio + 1, der);
 
 	        // Contar inversiones en la fase de fusión
-	        inversiones += fusionarContar(arr, aux, izq, medio, der);
+	        inversiones += merge(arr, aux, izq, medio, der);
 
 	        return inversiones;
 	    }
@@ -59,7 +59,7 @@ package Prueba;
 	     * @param der   Índice derecho
 	     * @return Número de inversiones
 	     */
-	    private static int fusionarContar(int[] arr, int[] aux, int izq, int medio, int der) {
+	    private static int merge(int[] arr, int[] aux, int izq, int medio, int der) {
 	        for (int i = izq; i <= der; i++) {
 	            aux[i] = arr[i];
 	        }
