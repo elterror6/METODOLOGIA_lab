@@ -10,7 +10,7 @@ package Prueba;
 	 */
 	public class ContadorInversiones {
 		
-		private static final String FILE = "./InversionesTest_12.dat";
+		private static final String FILE = System.getProperty("user.dir")+"\\InversionsTest_12.dat";
 	    
 	    /**
 	     * Método principal para contar las inversiones en el array.
@@ -109,7 +109,7 @@ package Prueba;
 	            
 	            return numeros;
 	        } catch (FileNotFoundException e) {
-	            System.err.println("Error: Archivo no encontrado.");
+	            System.err.println("Error: Archivo no encontrado. ("+FILE+")");
 	            return new int[0];
 	        } catch (NumberFormatException e) {
 	            System.err.println("Error: Formato incorrecto en el archivo.");
