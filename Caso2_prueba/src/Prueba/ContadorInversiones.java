@@ -88,7 +88,7 @@ package Prueba;
 	     * @param filePath Ruta del archivo a leer.
 	     * @return Array de enteros leído del archivo.
 	     */
-	    public static int[] leerArchivo(String filePath) {
+	    public static int[] leerArchivo() {
 	        try {
 	            File file = new File(FILE);
 	            Scanner scanner = new Scanner(file);
@@ -121,8 +121,8 @@ package Prueba;
 	     * Método principal para ejecutar el programa.
 	     */
 	    public static void main(String[] args) {
-	        String rutaArchivo = "InversionTest_12.txt"; // Ruta del archivo a leer
-	        int[] array = leerArchivo(rutaArchivo);
+
+	        int[] array = leerArchivo();
 
 	        if (array.length > 0) {
 	            System.out.println("Número de inversiones: " + contarInversiones(array));
