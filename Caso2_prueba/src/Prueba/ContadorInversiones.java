@@ -9,6 +9,8 @@ package Prueba;
 	 * utilizando el paradigma de Divide y Vencerás con una complejidad O(n log n).
 	 */
 	public class ContadorInversiones {
+		
+		private static final String FILE = "./InversionesTest_12.dat";
 	    
 	    /**
 	     * Método principal para contar las inversiones en el array.
@@ -88,7 +90,7 @@ package Prueba;
 	     */
 	    public static int[] leerArchivo(String filePath) {
 	        try {
-	            File file = new File("C:\\Users\\Usuario\\Desktop\\Metodología de la programación\\Laboratorio\\Codigos eclipse\\Caso2_prueba\\InversionsTest_12.dat");
+	            File file = new File(FILE);
 	            Scanner scanner = new Scanner(file);
 	            
 	            // Leer los números del archivo
