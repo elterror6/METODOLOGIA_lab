@@ -1,44 +1,7 @@
-package caso3;
-import java.util.ArrayList;
-	import java.util.Collections;
-	import java.util.Scanner;
+package CasoEstudio1.Interfaz;
 
-public interface Interfaz {
+public class Interfaz {
 	
-
-	    public static void main(String[] args) {
-	        Scanner scanner = new Scanner(System.in);
-
-	        System.out.println("=== Solado Económico ===");
-
-	        // Pedir tamaño del suelo (lado del cuadrado)
-	        System.out.print("Introduce el tamaño del suelo (lado en metros): ");
-	        int side = scanner.nextInt();
-
-	        // Pedir número de tipos de baldosas
-	        System.out.print("Introduce el número de tipos de baldosas: ");
-	        int numTipos = scanner.nextInt();
-
-	        // Pedir tamaño de cada baldosa
-	        ArrayList<Integer> tileSizes = new ArrayList<>();
-	        for (int i = 0; i < numTipos; i++) {
-	            System.out.print("Introduce el tamaño de la baldosa #" + (i + 1) + " (en metros): ");
-	            tileSizes.add(scanner.nextInt());
-	        }
-
-	        // Ordenar los tamaños de mayor a menor (como pide la estrategia voraz)
-	        Collections.sort(tileSizes, Collections.reverseOrder());
-
-	        // Mostrar los datos recogidos
-	        System.out.println("\n--- Datos introducidos ---");
-	        System.out.println("Tamaño del suelo: " + side + " x " + side + " metros");
-	        System.out.println("Tamaños de baldosas disponibles (ordenados): " + tileSizes);
-
-	        // Aquí iría la llamada al algoritmo voraz (que implementarías aparte)
-	        // Ejemplo: algoritmoVoraz(side, tileSizes);
-
-	        scanner.close();
-	    }
-	}
+}
 
 
