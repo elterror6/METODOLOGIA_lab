@@ -1,6 +1,6 @@
-package caso3;
+package CasoEstudio1.Interfaz;
 
-import Negocio.GreedyAlgorithm;
+import CasoEstudio1.Negocio.GreedyAlgorithm;
 import java.util.Scanner;
 
 public class main {
@@ -20,7 +20,7 @@ public class main {
         int numTipos = scanner.nextInt();
 
         // Pedir tamaño de cada baldosa
-        int [] tileSizes = new int [numTipos];
+        Integer [] tileSizes = new Integer [numTipos];
         for (int i = 0; i < numTipos; i++) {
             System.out.print("Introduce el tamaño de la baldosa #" + (i + 1) + " (en metros): ");
             tileSizes[i] = scanner.nextInt();
@@ -33,7 +33,7 @@ public class main {
         floor =  GreedyAlgorithm.tileFloor(tileSizes, size);
         for(int i = 0; i<floor.length; i++) {
         	for(int j = 0; j<floor[i].length;j++) {
-        		System.out.print(floor[i][j]);
+        		System.out.print(floor[i][j]+" ");
         	}
         	System.out.println();
         }

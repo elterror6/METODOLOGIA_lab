@@ -15,7 +15,7 @@ public class GreedyAlgorithm {
 	 * @param n the n
 	 * @return the int[][]
 	 */
-	public int[][] tileFloor (Integer[] tiles, int n) {
+	public static int[][] tileFloor (Integer[] tiles, int n) {
 		int current = 0, roomSize = 0, oldTileY = 0;
 		int[][] solution = new int[n][n];
 		Coordinate c = new Coordinate (0,0);
@@ -49,9 +49,9 @@ public class GreedyAlgorithm {
 	 * @param c El objeto Coordinate que indica donde va a estar la baldosa.
 	 * @return true, si la baldosa de tamaño m cabe en el suelo.
 	 */
-	private boolean tileFits (int[][] a, int m, Coordinate c, int oldTileY) {
+	private static boolean tileFits (int[][] a, int m, Coordinate c, int oldTileY) {
 		boolean solution = true;
-		if (c.getX()+m > a[c.getY()].length && c.getY()+m > a.length) {
+		if (c.getX()+m > a[c.getY()].length-1 && c.getY()+m > a.length-1) {
 			solution = false;
 		} else if (c.getX()+m <= a[c.getY()].length) {
 			if (c.getY() == 0) {
@@ -75,14 +75,14 @@ public class GreedyAlgorithm {
 	 * @param c El objeto coordenada que contiene donde se va a meter.
 	 * @param m El tamaño de la baldosa.
 	 */
-	private void addTile (int[][] a, Coordinate c, int m) {
-		for (int i = c.getOldY(); i <= c.getY(); i++) {
-			for (int j = c.getOldX(); j <= c.getX(); j++) {
+	private static void addTile (int[][] a, Coordinate c, int m) {
+		for (int i = c.getOldY(); i < c.getY(); i++) {
+			for (int j = c.getOldX(); j < c.getX(); j++) {
 				a[i][j]=m;
 			}
 		}
 	}
-	private void fillfloor(int[][] a) {
+	private static void fillfloor(int[][] a) {
 		for (int i = 0; i < a.length; i++) {
 			Arrays.fill(a[i], 0);
 			
