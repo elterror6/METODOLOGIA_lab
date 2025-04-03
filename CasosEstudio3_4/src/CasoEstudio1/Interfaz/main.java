@@ -1,6 +1,6 @@
 package caso3;
 
-import java.util.ArrayList;
+import Negocio.GreedyAlgorithm;
 import java.util.Scanner;
 
 public class main {
@@ -12,24 +12,31 @@ public class main {
 
         // Pedir tamaño del suelo (lado del cuadrado)
         System.out.print("Introduce el tamaño del suelo (lado en metros): ");
-        int side = scanner.nextInt();
+        int size = scanner.nextInt();
+        int [][] floor;
 
         // Pedir número de tipos de baldosas
         System.out.print("Introduce el número de tipos de baldosas: ");
         int numTipos = scanner.nextInt();
 
         // Pedir tamaño de cada baldosa
-        ArrayList<Integer> tileSizes = new ArrayList<>();
+        int [] tileSizes = new int [numTipos];
         for (int i = 0; i < numTipos; i++) {
             System.out.print("Introduce el tamaño de la baldosa #" + (i + 1) + " (en metros): ");
-            tileSizes.add(scanner.nextInt());
+            tileSizes[i] = scanner.nextInt();
         }
 
         // Mostrar los datos recogidos
         System.out.println("\n--- Datos introducidos ---");
-        System.out.println("Tamaño del suelo: " + side + " x " + side + " metros");
-        System.out.println("Tamaños de baldosas disponibles (ordenados): " + tileSizes);
-
+        System.out.println("Tamaño del suelo: " + size + " x " + size + " metros");
+        
+        floor =  GreedyAlgorithm.tileFloor(tileSizes, size);
+        for(int i = 0; i<floor.length; i++) {
+        	for(int j = 0; j<floor[i].length;j++) {
+        		System.out.print(floor[i][j]);
+        	}
+        	System.out.println();
+        }
         // Aquí iría la llamada al algoritmo voraz 
 
         scanner.close();
