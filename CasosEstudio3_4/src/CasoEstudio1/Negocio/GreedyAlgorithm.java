@@ -80,4 +80,10 @@ public class GreedyAlgorithm {
 			}
 		}
 	}
+	private void fillfloor(int[][] a) {
+		for (int i = 0; i < a.length; i++) {
+			Arrays.fill(a[i], 0);
+			
+		}
+	}
 }
