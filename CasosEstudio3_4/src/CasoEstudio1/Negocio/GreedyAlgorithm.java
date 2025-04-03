@@ -17,9 +17,11 @@ public class GreedyAlgorithm {
 	 */
 	public int[][] tileFloor (Integer[] tiles, int n) {
 		int current = 0, roomSize = 0, oldTileY = 0;
-		int[][] solution = null;
+		int[][] solution = new int[n][n];
 		Coordinate c = new Coordinate (0,0);
-		//TODO: Método para inicializar la solución.
+		
+		fillfloor(solution);
+
 		Arrays.sort(tiles, Collections.reverseOrder());
 		
 		do {
