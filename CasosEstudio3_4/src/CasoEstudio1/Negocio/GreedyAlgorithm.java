@@ -12,30 +12,40 @@ public class GreedyAlgorithm {
 	 * Tile floor.
 	 *
 	 * @param tiles the tiles
-	 * @param n the n
+	 * @param n     the n
 	 * @return the int[][]
 	 */
-	public static int[][] tileFloor (Integer[] tiles, int n) {
-		int current = 0, roomSize = 0, oldTileY = 0;
+	public static int[][] tileFloor(Integer[] tiles, int n) {
+		int current = 0, roomSize = n * n;
 		int[][] solution = new int[n][n];
-		Coordinate c = new Coordinate (0,0);
-		
-		fillfloor(solution);
 
 		Arrays.sort(tiles, Collections.reverseOrder());
-		
-		do {
-			if (tileFits(solution, tiles[current],c,oldTileY)){ 
-				//TODO: Método para reducir el roomSize
-				addTile (solution, c, tiles[current]);
-			} else {
-				oldTileY = c.getY();
-				c.setY(0);
-				++current;
-			}
-		}while(roomSize>0 || current < tiles.length);
 
-	return solution;
+		for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (solution[i][j] == 0) {  // Celda vacía
+                    boolean placed = false;
+                    // Intenta colocar la baldosa más grande posible en esta celda
+                    for (int k = 0; k < tiles.length; k++) {
+                        int tileSize = tiles[k];
+                        if (fits(solution, tileSize, i, j)) {
+                            place(solution, tileSize, i, j);
+                            roomSize -= tileSize * tileSize;
+                            placed = true;
+                            // Avanza j para saltar el bloque ya cubierto por la baldosa
+                            j += tileSize - 1;
+                            break; // Se colocó una baldosa, salir del for de tipos
+                        }
+                    }
+                    // Si ninguna baldosa se ajusta en ese hueco, márcalo (por ejemplo, con -1)
+                    if (!placed) {
+                        solution[i][j] = 0;
+                    }
+                }
+            }
+        }
+
+		return solution;
 
 	}
 	
@@ -44,29 +54,25 @@ public class GreedyAlgorithm {
 	 * también calcula donde se va a alojar la baldosa, guardando las coordenadas
 	 * en el objeto Coordinate pasado por parametros.
 	 *
-	 * @param a El array que representa el suelo.
-	 * @param m El tamaño de la actual baldosa.
-	 * @param c El objeto Coordinate que indica donde va a estar la baldosa.
+	 * @param floor El array que representa el suelo.
+	 * @param tileSize El tamaño de la actual baldosa.
+	 * @param position El objeto Coordinate que indica donde va a estar la baldosa.
 	 * @return true, si la baldosa de tamaño m cabe en el suelo.
 	 */
-	private static boolean tileFits (int[][] a, int m, Coordinate c, int oldTileY) {
-		boolean solution = true;
-		if (c.getX()+m > a[c.getY()].length-1 && c.getY()+m > a.length-1) {
-			solution = false;
-		} else if (c.getX()+m <= a[c.getY()].length) {
-			if (c.getY() == 0) {
-				c.setY(m);
-			}
-			c.setX(c.getX()+m);
-		} else if (c.getY()+m <= a.length) {
-			if (c.getOldY() >= oldTileY) {
-				c.setX(0);
-			} else {
-				c.setX(c.getOldX());
-			}
-			c.setY(c.getY()+m);
-		}
-		return solution;
+	public static boolean fits(int[][] floor, int tileSize, int row, int col) {
+	    int n = floor.length;
+	    if (col + tileSize > n || row + tileSize > n) {
+	        return false;
+	    }
+	    
+	    for (int i = row; i < row + tileSize; i++) {
+	    	for (int j = col; j < col + tileSize; j++) {
+	    		if (floor[i][j] != 0) {
+	    			return false;
+	    		}
+	    	}
+	    }
+	    return true;
 	}
 	/**
 	 * Este método se encarga de añadir la baldosa al suelo.
@@ -75,17 +81,11 @@ public class GreedyAlgorithm {
 	 * @param c El objeto coordenada que contiene donde se va a meter.
 	 * @param m El tamaño de la baldosa.
 	 */
-	private static void addTile (int[][] a, Coordinate c, int m) {
-		for (int i = c.getOldY(); i < c.getY(); i++) {
-			for (int j = c.getOldX(); j < c.getX(); j++) {
-				a[i][j]=m;
-			}
-		}
-	}
-	private static void fillfloor(int[][] a) {
-		for (int i = 0; i < a.length; i++) {
-			Arrays.fill(a[i], 0);
-			
-		}
+	public static void place(int[][] floor, int tileSize, int row, int col) {
+	    for (int i = 0; i < tileSize; i++) {
+	        for (int j = 0; j < tileSize; j++) {
+	            floor[row + i][col + j] = tileSize;
+	        }
+	    }
 	}
 }
