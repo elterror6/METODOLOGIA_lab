@@ -16,7 +16,6 @@ public class GreedyAlgorithm {
 	 * @return the int[][]
 	 */
 	public static int[][] tileFloor(Integer[] tiles, int n) {
-		int current = 0, roomSize = n * n;
 		int[][] solution = new int[n][n];
 
 		Arrays.sort(tiles, Collections.reverseOrder());
@@ -24,23 +23,18 @@ public class GreedyAlgorithm {
 		for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 if (solution[i][j] == 0) {  // Celda vacía
-                    boolean placed = false;
                     // Intenta colocar la baldosa más grande posible en esta celda
                     for (int k = 0; k < tiles.length; k++) {
                         int tileSize = tiles[k];
                         if (fits(solution, tileSize, i, j)) {
                             place(solution, tileSize, i, j);
-                            roomSize -= tileSize * tileSize;
-                            placed = true;
                             // Avanza j para saltar el bloque ya cubierto por la baldosa
                             j += tileSize - 1;
                             break; // Se colocó una baldosa, salir del for de tipos
                         }
                     }
-                    // Si ninguna baldosa se ajusta en ese hueco, márcalo (por ejemplo, con -1)
-                    if (!placed) {
-                        solution[i][j] = 0;
-                    }
+                } else {
+                	j += solution[i][j] - 1;
                 }
             }
         }
