@@ -90,7 +90,7 @@ public class GreedyAlgorithm {
 						}
 					}
 				} else {
-					j += solution[i][j];
+					j += solution[i][j]-1;
 				}
 			}
 		}
