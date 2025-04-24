@@ -12,21 +12,42 @@ import CasoEstudio4.Negocio.Festival;
 import CasoEstudio4.Negocio.IPlanificadorFestivales;
 import CasoEstudio4.Negocio.PlanificadorFestivalesImp;
 
-
 /**
- * Clase principal que lee los festivales desde Festivales.dat y ejecuta
- * el algoritmo de backtracking para encontrar la mejor combinación.
+ * Clase principal para la ejecución del algoritmo de planificación de festivales mediante backtracking.
+ * <p>
+ * Esta clase lee un conjunto de festivales desde un archivo externo llamado {@code Festivales.dat}, ubicado
+ * en la ruta local del usuario. El archivo debe tener una primera línea que indica el número de festivales
+ * (la cual se descarta), y a continuación cada línea debe tener el siguiente formato:
+ * <pre>
+ * NombreFestival,DiaInicio,DiaFin,Coste
+ * </pre>
+ * <p>
+ * Una vez cargados los festivales, se ordenan por el día de inicio y se ejecuta el algoritmo
+ * de backtracking implementado en {@link PlanificadorFestivalesImp}. El objetivo es encontrar
+ * la mejor combinación posible de festivales que maximice el número de días asistidos sin superar
+ * un presupuesto máximo (1000€).
+ * 
+ * @author OUSSAMA BOLBAROUD
+ * @author DANIEL DÍAZ GARCÍA
+ * @version 1.1
  */
 public class Main {
 
+    /**
+     * Método principal del programa. Lee el archivo de festivales, ordena los datos,
+     * ejecuta el algoritmo de backtracking y muestra la solución óptima por consola.
+     * 
+     * @param args Argumentos de línea de comandos (no utilizados en este programa).
+     */
     public static void main(String[] args) {
         List<Festival> festivals = new ArrayList<>();
 
+        // Leer festivales desde el archivo Festivales.dat
         try (BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\oussa\\Downloads\\Festivales.dat"))) {
             // Leer y descartar la primera línea (número de festivales)
             String line = br.readLine();
 
-            // Leer el resto de líneas con los festivales
+            // Leer el resto de líneas con los datos de festivales
             while ((line = br.readLine()) != null) {
                 String[] parts = line.split(",");
                 if (parts.length == 4) {
@@ -42,22 +63,22 @@ public class Main {
             return;
         }
 
-        // Ordenar festivales por día de inicio
+        // Ordenar los festivales por día de inicio para facilitar el backtracking
         Collections.sort(festivals, Comparator.comparingInt(Festival::getStart));
 
-        // Presupuesto máximo
+        // Presupuesto máximo para asistir a festivales
         int budget = 1000;
 
-        // Crear instancia del planificador
+        // Crear una instancia del planificador
         IPlanificadorFestivales planificador = new PlanificadorFestivalesImp();
 
-        // Ejecutar algoritmo de backtracking
+        // Ejecutar el algoritmo de backtracking con los datos leídos
         planificador.backtracking(festivals, 0, 0, 0, budget, new ArrayList<>());
 
-        // Obtener resultados
+        // Cast para acceder a los resultados obtenidos
         PlanificadorFestivalesImp impl = (PlanificadorFestivalesImp) planificador;
 
-        // Imprimir resultados
+        // Mostrar resultados por consola
         System.out.println("Mejor combinación de festivales:");
         for (Festival f : impl.getBestFestivals()) {
             System.out.println(f);
